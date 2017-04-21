@@ -1,3 +1,5 @@
+require 'active_support'
+
 module Xcake
   module Constants
     COMMON_BUILD_SETTINGS = Xcodeproj::Constants::COMMON_BUILD_SETTINGS.deep_merge(
