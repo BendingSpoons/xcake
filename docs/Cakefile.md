@@ -1,3 +1,4 @@
+TEST
 # Cakefile Syntax Reference
 
 The `Cakefile` contains a lightweight DSL which provides the instructions on how to generate
