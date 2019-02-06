@@ -49,6 +49,14 @@ module Xcake
         Xcodeproj::Constants::DEFAULT_OBJECT_VERSION.to_s
       end
 
+      def archive_version
+        Xcodeproj::Constants::LAST_KNOWN_ARCHIVE_VERSION.to_s
+      end
+
+      def classes
+        {}
+      end
+
       # Configures the Project for use with Xcake.
       # This makes sure we have sensible defaults and
       # it as clean as possible.
@@ -132,9 +140,8 @@ module Xcake
       # @return [PBXGroup] existing or new xcode group
       #
       def group_for_file_reference_path(path)
-        clean_path = path.cleanpath
         group = variant_group_for_path(path)
-        group = group_for_path(path) unless group
+        group ||= group_for_path(path)
         group
       end
 
@@ -155,6 +162,7 @@ module Xcake
         base_name = group_path.basename
 
         return nil unless base_name.to_s.include?('.lproj')
+
         parent_group = group_for_path(group_path)
 
         group = parent_group[path.basename.to_s]
@@ -173,6 +181,7 @@ module Xcake
         group_path = path.dirname.cleanpath
 
         return main_group unless group_path.to_s != '.'
+
         main_group.child_for_path(group_path.to_s)
       end
 
@@ -188,6 +197,19 @@ module Xcake
       def find_unit_test_target_for_target(target)
         targets.find do |t|
           t.name == "#{target.name}Tests"
+        end
+      end
+
+      # Finds a ui test target for a xcode target
+      #
+      # @param [Target] target
+      #                 target to find a xcode target for.
+      #
+      # @return [Target] ui test target
+      #
+      def find_ui_test_target_for_target(target)
+        targets.find do |t|
+          t.name == "#{target.name}UITests"
         end
       end
     end

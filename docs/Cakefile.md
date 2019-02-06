@@ -44,7 +44,7 @@ You can also directly set the properties without a block, like so:
 project.project_name = "Project"
 ```
 
-###Properties
+### Properties
 
 #### Project Name
 
@@ -76,7 +76,7 @@ Targets are the way we make products such as Applications, Extensions, Libraries
 Xcake provides some easy ways to produce these types of targets but also
 allows you to drop down a level if you need more power.
 
-###Applications
+### Applications
 
 A project can specify any application targets such as iOS or Mac Apps.
 
@@ -459,7 +459,7 @@ We can create a scheme with the name of the target like so:
 target.scheme(target.name)
 ```
 
-If we don't configure this scheme then it will default to the reccomended
+If we don't configure this scheme then it will default to the recommended
 Apple settings of using the debug build configurations for everything
 except the Archive action which will use the Release configuration.
 

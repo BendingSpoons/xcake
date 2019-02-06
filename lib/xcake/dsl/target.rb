@@ -42,6 +42,11 @@ module Xcake
     #
     attr_accessor :build_phases
 
+    # @return [Array<BuildRule>] the list
+    #                             of build rules for the project.
+    #
+    attr_accessor :build_rules
+
     # @!group File patterns
 
     #
@@ -131,7 +136,7 @@ module Xcake
     #
     #     spec.include_files = "Classes/**/*.{h,m}"
     #
-    attr_accessor :include_files
+    attr_writer :include_files
 
     # @return [Array or String] files to exclude for the target.
     #                           Supports regular expressions
@@ -153,7 +158,7 @@ module Xcake
     #
     #    spec.system_frameworks = ["Foundation"]
     #
-    attr_accessor :system_frameworks
+    attr_writer :system_frameworks
 
     # @return [Array<String>] system libraries to include for the target
     #
@@ -189,6 +194,7 @@ module Xcake
     def initialize
       @pinned_build_phases = []
       @build_phases = []
+      @build_rules = []
       @exclude_files = []
       @linked_targets = []
       @system_libraries = []
@@ -203,7 +209,7 @@ module Xcake
     # Creates a new scheme for the target
     #
     # @param  [String] name
-    #         the name of the new scheme 
+    #         the name of the new scheme
     #
     # @return [Scheme] the scheme
     #         the newly created scheme
@@ -224,6 +230,10 @@ module Xcake
     def system_frameworks
       # Use default frameworks by default
       @system_frameworks ||= default_system_frameworks_for(platform)
+    end
+
+    def info_plist_paths
+      all_configurations.map { |config| config.settings['INFOPLIST_FILE'] }.uniq
     end
 
     # @!group Conversion

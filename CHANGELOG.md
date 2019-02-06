@@ -1,3 +1,30 @@
+v0.8.13
+=======
+- Fixes some of the gem being bundled with older code
+
+v0.8.12
+=======
+- Fixes bug with the target file reference generator
+
+v0.8.11
+=======
+- Fixes issues with .framework not being automatically included
+- Fixes issues with .xcassets not being automatically included
+- Fixes issues with .bundle not being automatically included
+- Fixes UI tests for iOS and OS X targets
+- Fixes crash if folder contains special characters
+- Generates fields to prevent crashes trying to work with xcake generated xcode projects
+- Updates yard dependency to fix security vunerability
+- Fixes `deep_merge` error
+- Fixes undefined method `dirname`
+- Adds ability to specify custom build rules
+
+v0.8.10
+=======
+- Fixes `deep_merge` error
+- Fixes undefined `dirname` error
+- Adds copy files build phase
+
 v0.8.9
 ======
 - Fixes occasional crash when attempting to resolve Cakefile with implcit-configurations

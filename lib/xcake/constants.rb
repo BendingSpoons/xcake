@@ -1,8 +1,8 @@
-require 'active_support'
+require 'active_support/core_ext/hash/deep_merge'
 
 module Xcake
   module Constants
-    COMMON_BUILD_SETTINGS = Xcodeproj::Constants::COMMON_BUILD_SETTINGS.deep_merge(
+    COMMON_BUILD_SETTINGS = Xcodeproj::Constants::COMMON_BUILD_SETTINGS.dup.deep_merge(
       [:ios, :unit_test_bundle] => {
         'LD_RUNPATH_SEARCH_PATHS' => [
           '$(inherited)',
@@ -10,7 +10,21 @@ module Xcake
           '@loader_path/Frameworks'
         ]
       }.freeze,
+      [:ios, :ui_test_bundle] => {
+        'LD_RUNPATH_SEARCH_PATHS' => [
+          '$(inherited)',
+          '@executable_path/Frameworks',
+          '@loader_path/Frameworks'
+        ]
+      }.freeze,
       [:osx, :unit_test_bundle] => {
+        'LD_RUNPATH_SEARCH_PATHS' => [
+          '$(inherited)',
+          '@executable_path/../Frameworks',
+          '@loader_path/../Frameworks'
+        ]
+      }.freeze,
+      [:osx, :ui_test_bundle] => {
         'LD_RUNPATH_SEARCH_PATHS' => [
           '$(inherited)',
           '@executable_path/../Frameworks',
@@ -46,8 +60,8 @@ module Xcake
     #
     # @return [Hash] The common build settings
     #
-    def self.common_build_settings(type, platform = nil, deployment_target = nil, target_product_type = nil, language = :objc)
-      target_product_type = (PRODUCT_TYPE_UTI.find { |_, v| v == target_product_type } || [target_product_type || :application])[0]
+    def self.common_build_settings(type, platform = nil, deployment_target = nil, target_product_type = nil, language = :objc) # rubocop:disable Metrics/CyclomaticComplexity, Metrics/LineLength
+      target_product_type = (PRODUCT_TYPE_UTI.find { |_, v| v == target_product_type } || [target_product_type || :application])[0] # rubocop:disable Metrics/LineLength
       common_settings = COMMON_BUILD_SETTINGS
 
       # Use intersecting settings for all key sets as base

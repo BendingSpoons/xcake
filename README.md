@@ -1,30 +1,39 @@
 # Xcake
 [![Gem](https://img.shields.io/gem/v/xcake.svg)](https://rubygems.org/gems/xcake)
-[![Twitter: @jcampbell_05](https://img.shields.io/badge/contact-@jcampbell_05-blue.svg?style=flat)](https://twitter.com/jcampbell_05)
+[![Twitter: @igormaka](https://img.shields.io/badge/contact-@igormaka-blue.svg?style=flat)](https://twitter.com/igormaka)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://github.com/fastlane/fastlane/blob/master/LICENSE)
-[![Build Status](https://img.shields.io/travis/jcampbell05/xcake/master.svg?style=flat)](https://travis-ci.org/jcampbell05/xcake)
-[![Test Coverage](https://img.shields.io/coveralls/jcampbell05/xcake/master.svg)](https://coveralls.io/github/jcampbell05/xcake)
+[![Build Status](https://img.shields.io/travis/igor-makarov/xcake/master.svg?style=flat)](https://travis-ci.org/igor-makarov/xcake)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/97d4476df2b0809a18ea/test_coverage)](https://codeclimate.com/github/igor-makarov/xcake/test_coverage)
 [![Gem](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-xcake)
 
-### Describe Xcode project in a human readable format and (re)generate one on demand.
+### Back under new management!
 
-You describe your project in a simple text file: your `Cakefile`.
-Xcake creates your project based on this including importing all of your files and creating groups
-to match the file hiearchy.
+The original author of Xcake, [James Campbell](https://github.com/jcampbell05) has decided to move on to other endeavors.  
+[Igor Makarov](https://github.com/igor-makarov) has volunteered to step in as the main maintainer, both because of his reliance on the gem for work, and because of general aversion to `.pbxproj` files.
 
-This is perfect for working in teams or with cocoapods as it reduces conflicts,
-makes it easy to modify settings and allows you to create a clean project anytime you need to.
+### Cakefile — A Podfile for your main project!
 
-Isn't this just like liftoff, generamba or crafter? No these tools are for scafolding a whole project structure to get you started (Creating folder structure, git repo etc.). However xcake is not for this, xcake is just for generating a xcodeproject.
+Describe your project in a simple text file: your `Cakefile`.
+Xcake generates your project based on this file including importing all of your files and creating groups and targets to match the file hierarchy.
 
-Get in contact with the developer on Twitter: [@jcampbell_05](https://twitter.com/jcampbell_05)
+This is perfect for working in teams or with CocoaPods as it reduces merge conflicts, makes it easy to modify settings and allows you to create a clean project anytime you need to.
+
+Isn't this just like Generamba or Crafter?  
+No, these tools are for scafolding an initial project structure to get you started (creating folder structure, git repo etc.).  
+Xcake will not create a folder structure, but will generate a project from it, and will continue to generate it each time you want it. Added some files? Generate! Renamed a folder? Generate!  
+Sick of seeing `.pbxproj` diffs in git? Add your project to `.gitignore` and generate it on checkout.
+
+
+Get in contact with the developer on Twitter: [@igormaka](https://twitter.com/igormaka).
+
+PBX delendare est.
 
 -------
 <p align="center">
     <a href="#features">Features</a> &bull;
     <a href="#installation">Installation</a> &bull;
     <a href="#need-help">Need help?</a> &bull;
-    <a href="http://www.rubydoc.info/github/jcampbell05/xcake/master/file/docs/Getting%20Started.md">Documentation</a>
+    <a href="http://www.rubydoc.info/github/igor-makarov/xcake/master/file/docs/Getting%20Started.md">Documentation</a>
 </p>
 
 -------
@@ -103,6 +112,11 @@ There is a sample [app project](https://github.com/jcampbell05/xcake/blob/master
 
 ## Need help?
 Please submit an issue on GitHub and provide information about your setup
+
+## People who use Xcake
+
+- Bending Spoons
+- Moovit
 
 ## License
 This project is licensed under the terms of the MIT license. See the LICENSE file.
