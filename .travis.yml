@@ -1,17 +1,10 @@
-os: osx
 language: ruby
-install: true
-
-env: 
-  - |
-    XCAKE_CI_TASKS=TEST JFROG_CLI_OFFER_CONFIG=false
-
-gemfile:
-  - Gemfile
-  - gemfiles/Gemfile.xcodeproj-edge
+dist: xenial
 rvm:
   - 2.5.0
-  - ruby-2.0.0-p648
+
+env:
+  - JFROG_CLI_OFFER_CONFIG=false
 
 before_script:
   - gem install bundler -v "~> 1.17"
