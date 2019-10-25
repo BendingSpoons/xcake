@@ -20,7 +20,7 @@ get_gemfile(){
 }
 
 get_version(){
-    retval=`cat lib/$package/version.rb | grep VERSION | cut -d "'" -f2`;
+    retval=`cat lib/xcake/version.rb | grep VERSION | cut -d "'" -f2`;
 }
 
 checks() {
