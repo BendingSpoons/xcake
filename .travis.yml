@@ -7,7 +7,7 @@ env:
   - JFROG_CLI_OFFER_CONFIG=false
 
 before_script:
-  - gem install bundler -v "~> 1.17"
+  - gem install bundler -v "~> 2.0.1"
   - bundle install
   - curl -fL https://getcli.jfrog.io | sh
   - sudo mv jfrog /usr/bin/jfrog
