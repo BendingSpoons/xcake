@@ -53,7 +53,7 @@ deploy_artifactory() {
     get_version;
     version=$retval;
 
-    jfrog rt upload --url=$ARTIFACTORY_URL --access-token=$ARTIFACTORY_TOKEN $gemfile gems-local/gems/$package-$version.gem
+    jfrog rt upload --url=$ARTIFACTORY_URL --access-token=$ARTIFACTORY_CI_TOKEN $gemfile gems-local/gems/$package-$version.gem
 }
 
 deploy() {
