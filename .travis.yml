@@ -8,7 +8,7 @@ env:
 
 before_script:
   - gem install bundler -v "~> 1.17"
-  - bundle install --jobs=3
+  - bundle install
   - curl -fL https://getcli.jfrog.io | sh
   - sudo mv jfrog /usr/bin/jfrog
 
